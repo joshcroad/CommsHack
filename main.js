@@ -1,14 +1,30 @@
-var input = function () {
+(function () {
 
-	var values = {
-    	message: input.getElement('message'),
-    	randomMessageCheck: input.getElement('randomMessageCheck'),
-    	date: input.getElement('date'),
-    	time: input.getElement('time')
-    };
+	var randomMessage = function () {
+		if (isChecked) {
+			return console.log('hello');
+		}
+	};
 
-    var getElement = function (elementId) {
-        return document.getElementById(elementId);
-    };
+	var submit = function () {
+		randomMessage()
+	};
 
-};
+	var checkBox,
+		isChecked = false;
+
+	var loaded = function () {
+		checkBox = document.getElementById('randomMessageCheck');
+		checkBox.addEventListener('click', function (e) {
+			isChecked = checkBox.checked ? true : false;
+		}, false);
+
+		submitBtn = document.getElementById('submit');
+		submitBtn.addEventListener('click', function (e) {
+			submit();
+		}, false);
+	};
+
+	window.addEventListener('load', loaded, false);
+
+}());
