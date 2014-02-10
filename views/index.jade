@@ -1,0 +1,29 @@
+!!! 5
+html(lang='en')
+head
+    meta(charset='UTF-8')
+    title Comms Hack
+    link(rel='stylesheet', href='style.css')
+  body
+    article
+      header
+        h1 Comms Hack
+      section#inputs
+        form(method='post', action='/request')
+          p
+            | Phone number:
+            input#phoneNumber(name='to', type='text', placeholder='+445647366936', required='required')
+          p
+            | Message:
+            input#message(name='message', type='text')
+          p
+            | Random message:
+            input#randomMessageCheck(type='checkbox', name='isChecked')
+          p
+            | Time (minutes):
+            input#time(type='text', required='required', name='time')
+          p
+            input#submit(type='submit', value='Submit')
+      footer
+        p Footer stuff
+    script(src='/public/main.js')
